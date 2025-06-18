@@ -1,0 +1,715 @@
+{
+	"info": {
+		"_postman_id": "41d83faf-9331-478a-83c5-425aa21331fa",
+		"name": "Jasamarga",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15201887",
+		"_collection_link": "https://lunar-station-472997.postman.co/workspace/MII~8801e506-f93e-4642-9e9c-86e5906a9d2c/collection/15201887-41d83faf-9331-478a-83c5-425aa21331fa?action=share&source=collection_link&creator=15201887"
+	},
+	"item": [
+		{
+			"name": "jwt",
+			"item": [
+				{
+					"name": "generate-jwt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"username\": \"testing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API-URL}}generate-jwt",
+							"host": [
+								"{{API-URL}}generate-jwt"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Education",
+			"item": [
+				{
+					"name": "educations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/educations",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"educations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "education",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/educations/4",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"educations",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-education",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"employee_id\": 1,\r\n  \"name\": \"Teknik Informatika\",\r\n  \"level\": \"Strata 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API-URL}}api/educations",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"educations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-education",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"employee_id\": 2,\r\n  \"name\": \"Teknik Informatika\",\r\n  \"level\": \"Strata 1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API-URL}}api/educations/3",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"educations",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-education",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/educations/3",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"educations",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee Families",
+			"item": [
+				{
+					"name": "employee-families",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/employee-families",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employee-families"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee-family",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/employee-families/4",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employee-families",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-employee-family",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"employee_id\": 1,\r\n  \"name\": \"Siti Aminah\",\r\n  \"identifier\": \"1234567890123456\",\r\n  \"job\": \"Guru\",\r\n  \"place_of_birth\": \"Bandung\",\r\n  \"date_of_birth\": \"1990-04-15\",\r\n  \"religion\": \"Islam\",\r\n  \"is_life\": true,\r\n  \"is_divorced\": false,\r\n  \"relation_status\": \"Istri\",\r\n  \"created_by\": \"admin\",\r\n  \"updated_by\": \"admin\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API-URL}}api/employee-families",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employee-families"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-employee-family",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"employee_id\": 2,\r\n  \"name\": \"Siti\",\r\n  \"identifier\": \"1234567890123456\",\r\n  \"job\": \"Guru\",\r\n  \"place_of_birth\": \"Bandung\",\r\n  \"date_of_birth\": \"1990-04-15\",\r\n  \"religion\": \"Islam\",\r\n  \"is_life\": true,\r\n  \"is_divorced\": false,\r\n  \"relation_status\": \"Istri\",\r\n  \"created_by\": \"admin\",\r\n  \"updated_by\": \"admin\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API-URL}}api/employee-families/4",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employee-families",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-employee-family",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/employee-families/3",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employee-families",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employee Profiles",
+			"item": [
+				{
+					"name": "employee-profiles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/employee-profiles",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employee-profiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee-profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/employee-profiles/10",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employee-profiles",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-employee-profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"employee_id\": 2,\r\n  \"place_of_birth\": \"Jakarta\",\r\n  \"date_of_birth\": \"1990-05-20\",\r\n  \"gender\": \"Laki-Laki\",\r\n  \"is_married\": true,\r\n  \"prof_pict\": \"https://example.com/image.jpg\",\r\n  \"created_by\": \"admin\",\r\n  \"updated_by\": \"admin\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API-URL}}api/employee-profiles",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employee-profiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-employee-profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"employee_id\": 2,\r\n  \"place_of_birth\": \"Jakarta\",\r\n  \"date_of_birth\": \"1990-05-20\",\r\n  \"gender\": \"Laki-Laki\",\r\n  \"is_married\": true,\r\n  \"prof_pict\": \"https://example.com/image.jpg\",\r\n  \"created_by\": \"admin\",\r\n  \"updated_by\": \"admin\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API-URL}}api/employee-profiles/2",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employee-profiles",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-employee-profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/employee-profiles/7",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employee-profiles",
+								"7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "employees",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/employees",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/employees/1",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n  \"nik\": \"9876543210987654\",\r\n  \"name\": \"Jane Doe\",\r\n  \"is_active\": false,\r\n  \"start_date\": \"2023-06-01\",\r\n  \"end_date\": \"2024-06-01\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API-URL}}api/employees",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"nik\": \"9876543210987654\",\r\n  \"name\": \"Jane Doe testing\",\r\n  \"is_active\": false,\r\n  \"start_date\": \"2023-06-01\",\r\n  \"end_date\": \"2024-06-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API-URL}}api/employees/3",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employees",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-employee",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/employees/1",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employees",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "Employee Report",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{JWT-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API-URL}}api/employee-reports",
+							"host": [
+								"{{API-URL}}api"
+							],
+							"path": [
+								"employee-reports"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

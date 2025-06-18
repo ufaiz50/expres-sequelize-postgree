@@ -1,0 +1,5 @@
+https://github.com/bezkoder/typescript-orm-postgres -> simple boilerplace (architecture)
+https://www.npmjs.com/package/sequelize-auto -> reverse code first (generate model from existing table)
+https://www.npmjs.com/package/jsonwebtoken -> auth middleware
+https://express-validator.github.io/docs/ -> validation each route, because is easy to use and simple way
+https://jestjs.io/docs/getting-started -> for unit test (controller) with Mock data
