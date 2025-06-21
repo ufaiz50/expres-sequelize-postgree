@@ -56,7 +56,7 @@ Pastikan kamu sudah menginstall:
 
 Jalankan database dan aplikasi bersamaan:
 ```bash
-docker-compose up -d
+docker compose up --build
 ```
 Setelah itu, akses API di `http://localhost:3000`.
 
