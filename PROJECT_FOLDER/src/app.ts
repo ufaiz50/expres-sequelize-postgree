@@ -1,8 +1,11 @@
 import express from 'express';
 import routes from './routes';
 import { generateToken } from './middleware/auth.middleware';
+import corsConfig from './config/cors.config';
 
 const app = express();
+
+app.use(corsConfig)
 app.use(express.json());
 
 app.use('/api', routes);
