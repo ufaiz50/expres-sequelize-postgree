@@ -2,8 +2,9 @@ import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpec from '../docs/swagger';
 import routes from './routes';
-import { generateToken } from './middleware/auth.middleware';
+import { generateJWTToken } from './utils/appHelpers';
 import corsConfig from './config/cors.config';
+import { JwtPayloadDto } from './dtos/auth/jwt.dto';
 
 const app = express();
 
@@ -14,12 +15,12 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api', routes);
 app.post('/generate-jwt', (req, res) => {
-  const { id, username } = req.body;
-
-  if (!id || !username) {
+  const payload: JwtPayloadDto = req.body;
+  if (!payload.id || !payload.username) {
     return res.status(400).json({ message: 'Missing id or username' });
   }
-  const token = generateToken({ id, username }, 7200);
+
+  const token = generateJWTToken(payload, 7200);
   return res.json({ token });
 });
 

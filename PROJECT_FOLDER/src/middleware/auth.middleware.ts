@@ -16,15 +16,6 @@ declare global {
 
 const JWT_SECRET: Secret = process.env.JWT_SECRET || 'your-secret';
 
-
-export const generateToken = (
-  payload: string | object | Buffer,
-  expiresIn: number = 3600
-): string => {
-  const options: SignOptions = { expiresIn };
-  return jwt.sign(payload, JWT_SECRET as Secret, options);
-};
-
 export const authenticateToken = (req: Request, res: Response, next: NextFunction) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];

@@ -6,10 +6,11 @@ jest.mock('../../src/services/employee.service', () => ({
 
 import request from 'supertest';
 import app from '../../src/app';
-import { generateToken } from '../../src/middleware/auth.middleware';
+import { generateJWTToken } from '../../src/utils/appHelpers';
+import { JwtPayloadDto } from '../../src/dtos/auth/jwt.dto';
 
 describe('Employee Controller with Auth', () => {
-  const token = generateToken({ id: 123, role: 'admin' });
+  const token = generateJWTToken({ id: 123, role: 'admin' } as JwtPayloadDto);
 
   describe('GET /api/employees', () => {
     it('should return all employees', async () => {
