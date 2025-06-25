@@ -4,6 +4,7 @@ import { createEducation, deleteEducation, getAllEducations, getEducationById, g
 import { createEducationValidator, updateEducationValidator } from '../validators/education.validator';
 
 const router = express.Router();
+
 router.get('/', authenticateToken, getAllEducations);
 router.get('/:id', authenticateToken, getEducationById);
 router.post('/', authenticateToken, createEducationValidator, createEducation);

@@ -7,6 +7,7 @@ const config: Config = {
   moduleFileExtensions: ['ts', 'js', 'json'],
   rootDir: './',
   clearMocks: true,
+  setupFilesAfterEnv: ['<rootDir>/tests/jest.setup.ts'],
 };
 
 export default config;

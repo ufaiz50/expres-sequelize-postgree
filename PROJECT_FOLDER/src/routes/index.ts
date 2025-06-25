@@ -8,6 +8,24 @@ import employeeReportRoutes from './employee-report.route';
 const router = express.Router();
 
 // Mount individual route modules
+/**
+ * @swagger
+ * /employees:
+ *   get:
+ *     summary: Get all employees
+ *     tags: [Employees]
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: List of employees
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Employee'
+ */
 router.use('/employees', employeeRoutes);
 router.use('/employee-families', employeeFamiliyRoutes);
 router.use('/employee-profiles', employeeProfileRoutes);

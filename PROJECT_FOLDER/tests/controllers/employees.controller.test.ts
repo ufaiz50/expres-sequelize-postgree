@@ -1,19 +1,12 @@
+import { EmployeeServiceMock } from '../__mock__/services/employee.service.moock'
+
+jest.mock('../../src/services/employee.service', () => ({
+  EmployeeService: EmployeeServiceMock,
+}));
+
 import request from 'supertest';
 import app from '../../src/app';
 import { generateToken } from '../../src/middleware/auth.middleware';
-
-jest.mock('../../src/services/employee.service', () => ({
-  EmployeeService: {
-    getAll: jest.fn(),
-    getPaginated: jest.fn(),
-    getById: jest.fn(),
-    create: jest.fn(),
-    update: jest.fn(),
-    delete: jest.fn(),
-  },
-}));
-
-import { EmployeeService } from '../../src/services/employee.service';
 
 describe('Employee Controller with Auth', () => {
   const token = generateToken({ id: 123, role: 'admin' });
@@ -21,7 +14,7 @@ describe('Employee Controller with Auth', () => {
   describe('GET /api/employees', () => {
     it('should return all employees', async () => {
       const mockEmployees = [{ id: 1, name: 'John Doe' }];
-      (EmployeeService.getAll as jest.Mock).mockResolvedValue(mockEmployees);
+      (EmployeeServiceMock.getAll as jest.Mock).mockResolvedValue(mockEmployees);
 
       const res = await request(app)
         .get('/api/employees')
@@ -38,7 +31,7 @@ describe('Employee Controller with Auth', () => {
 
   describe('GET /api/employees/:id', () => {
     it('should return employee by ID', async () => {
-      (EmployeeService.getById as jest.Mock).mockResolvedValue({ id: 1, name: 'John' });
+      (EmployeeServiceMock.getById as jest.Mock).mockResolvedValue({ id: 1, name: 'John' });
 
       const res = await request(app)
         .get('/api/employees/1')
@@ -62,7 +55,7 @@ describe('Employee Controller with Auth', () => {
         start_date: "2023-06-01",
         end_date: "2024-06-01"
       };
-      (EmployeeService.create as jest.Mock).mockResolvedValue({ id: 1, ...newEmp });
+      (EmployeeServiceMock.create as jest.Mock).mockResolvedValue({ id: 1, ...newEmp });
 
       const res = await request(app)
         .post('/api/employees')
@@ -87,7 +80,7 @@ describe('Employee Controller with Auth', () => {
         start_date: "2023-06-01",
         end_date: "2024-06-01"
       };
-      (EmployeeService.update as jest.Mock).mockResolvedValue({ id: 1, ...updateData });
+      (EmployeeServiceMock.update as jest.Mock).mockResolvedValue({ id: 1, ...updateData });
 
       const res = await request(app)
         .put('/api/employees/1')
@@ -105,7 +98,7 @@ describe('Employee Controller with Auth', () => {
 
   describe('DELETE /api/employees/:id', () => {
     it('should delete an employee', async () => {
-      (EmployeeService.delete as jest.Mock).mockResolvedValue(true);
+      (EmployeeServiceMock.delete as jest.Mock).mockResolvedValue(true);
 
       const res = await request(app)
         .delete('/api/employees/1')

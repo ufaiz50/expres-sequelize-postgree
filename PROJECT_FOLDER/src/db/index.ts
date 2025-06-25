@@ -1,6 +1,6 @@
 // src/db/index.ts
 import { Sequelize } from 'sequelize-typescript';
-import config from '../config/config';
+import config from '../config/postgree.config';
 import { initModels } from '../models/init-models';
 
 const env = process.env.NODE_ENV || 'development';

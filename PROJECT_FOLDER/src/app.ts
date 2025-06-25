@@ -1,4 +1,6 @@
 import express from 'express';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from '../docs/swagger';
 import routes from './routes';
 import { generateToken } from './middleware/auth.middleware';
 import corsConfig from './config/cors.config';
@@ -7,6 +9,8 @@ const app = express();
 
 app.use(corsConfig)
 app.use(express.json());
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use('/api', routes);
 app.post('/generate-jwt', (req, res) => {
